@@ -16,3 +16,23 @@ public class Main implements Directions {
 
     }
 }
+for(int i=0; i<=6; i++){
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+
+		}

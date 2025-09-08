@@ -26,33 +26,53 @@ public class Roomba implements Directions {
 
 		// A new Robot should be constructed and assigned to the global (instance) variable named roomba that is declared above.
         // Make sure it starts at startX and startY location.
-		Robot roomba = new Robot(startX, startY, North, 900);
+		Robot roomba = new Robot(startX, startY, East, 900);
 		
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(1);
 
-		
-		for(int i=0; i<=6; i++){
+		while (roomba.frontIsClear()){
+			while(roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
 			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
-
+			
 		}
+		while(roomba.frontIsClear()==false){
+			roomba.turnLeft();
+			roomba.move();
+			
+		}
+		while (roomba.frontIsClear()){
+			while(roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
+			roomba.move();
+			
+		}
+		while(roomba.frontIsClear()==false){
+			roomba.turnLeft();
+			roomba.move();
+			
+		}
+		while (roomba.frontIsClear()){
+			while(roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
+			roomba.move();
+			
+		}
+		while(roomba.frontIsClear()==false){
+			roomba.turnLeft();
+			roomba.move();
+			
+		}
+		
+
+		 
+
+
 
 		
 		
