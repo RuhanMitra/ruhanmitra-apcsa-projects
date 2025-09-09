@@ -30,44 +30,41 @@ public class Roomba implements Directions {
 		
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(1);
+		World.setDelay(10);
+		int totalBeepersPicked=0;
 
-		while (roomba.frontIsClear()){
+		
+		boolean moreToClean=true;
+		
+
+
+		while(roomba.frontIsClear()){
 			while(roomba.nextToABeeper()){
 				roomba.pickBeeper();
 			}
 			roomba.move();
-			
 		}
-		while(roomba.frontIsClear()==false){
-			roomba.turnLeft();
-			roomba.move();
+		while(moreToClean){
+			while (roomba.frontIsClear()){
+				roomba.move();
 			
-		}
-		while (roomba.frontIsClear()){
-			while(roomba.nextToABeeper()){
-				roomba.pickBeeper();
 			}
-			roomba.move();
-			
-		}
-		while(roomba.frontIsClear()==false){
+			if(roomba.facingEast()){
 			roomba.turnLeft();
 			roomba.move();
-			
-		}
-		while (roomba.frontIsClear()){
-			while(roomba.nextToABeeper()){
-				roomba.pickBeeper();
+			roomba.turnLeft();
 			}
-			roomba.move();
-			
+			else{
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.move();
+				roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.turnLeft();
+			}
 		}
-		while(roomba.frontIsClear()==false){
-			roomba.turnLeft();
-			roomba.move();
-			
-		}
+		
 		
 
 		 
