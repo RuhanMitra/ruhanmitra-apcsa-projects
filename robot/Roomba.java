@@ -50,9 +50,9 @@ public class Roomba implements Directions {
 			
 			}
 			if(roomba.facingEast()){
-			roomba.turnLeft();
-			roomba.move();
-			roomba.turnLeft();
+				roomba.turnLeft();
+				roomba.move();
+				roomba.turnLeft();
 			}
 			else{
 				roomba.turnLeft();
@@ -63,7 +63,11 @@ public class Roomba implements Directions {
 				roomba.turnLeft();
 				roomba.turnLeft();
 			}
+			
+			
 		}
+		roomba.pickBeeper();
+
 		
 		
 
