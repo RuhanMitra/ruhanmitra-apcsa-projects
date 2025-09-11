@@ -46,6 +46,9 @@ public class Roomba implements Directions {
 		}
 		while(moreToClean){
 			while (roomba.frontIsClear()){
+				while(roomba.nextToABeeper()){
+					roomba.pickBeeper();
+				}
 				roomba.move();
 			
 			}
@@ -66,7 +69,7 @@ public class Roomba implements Directions {
 			
 			
 		}
-		roomba.pickBeeper();
+				  
 
 		
 		
