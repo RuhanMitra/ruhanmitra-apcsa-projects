@@ -5,9 +5,9 @@ import kareltherobot.*;
 public class Roomba implements Directions {
 
 	public static void main(String[] args) {
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
+		int totalBeepers = cleaner.cleanRoom(worldName, 26, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 	}
 
@@ -15,7 +15,7 @@ public class Roomba implements Directions {
 
 	public int cleanRoom(String worldName, int startX, int startY) {
 
-		roomba = new Robot(startX, startY, East, 900);
+		roomba = new Robot(startX , startY, East, 900);
 		roomba.street();
 		roomba.avenue();
 		World.readWorld(worldName);
