@@ -21,6 +21,7 @@ public class Roomba implements Directions {
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(0);
+		//variable initialization
 		int numBeep = 0;
 		boolean moreToClean = true;
 		int Biggest = 0;
@@ -29,7 +30,7 @@ public class Roomba implements Directions {
 		int Area = 0;
 		int maxX=0;
 		int maxY=0;
-
+		//controls
 		while (moreToClean) {
 			while (roomba.frontIsClear()) {
 			current = 0;
@@ -48,7 +49,7 @@ public class Roomba implements Directions {
 			}
     		roomba.move();
 			Area++;
-		}
+		}	//direction
 			if (roomba.facingEast()) {
 				roomba.turnLeft();
 				if (roomba.frontIsClear()) {
@@ -83,5 +84,6 @@ public class Roomba implements Directions {
 		System.out.println("Average pile size = " + ((float)numBeep/Piles));
 		System.out.println("Location of largest pile: (" + maxX + "," +maxY+")" );
 		return numBeep;
+		//output
 	}
 }
