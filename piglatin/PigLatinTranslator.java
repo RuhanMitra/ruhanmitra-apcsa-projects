@@ -1,5 +1,5 @@
 package piglatin;
-
+import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
@@ -16,6 +16,25 @@ public class PigLatinTranslator {
         System.out.println("  -> translate('" + input + "')");
 
         String result = "";
+        if(input.length()==0){
+            return "";
+        }
+        Scanner scanner = new Scanner(input);
+        while(scanner.hasNext()){
+            String Word = scanner.next();
+            if(result.length()>0){
+                result = result + "";
+            }
+            result = result + translateWord(Word);
+        }
+        scanner.close();
+
+
+        if(result.length()==0){
+            return "";
+        }
+        
+        
 
         // TODO: translate a string input, store in result.
         // The input to this function could be any English string.
