@@ -28,7 +28,7 @@ public class PigLatinTranslator {
         while(scanner.hasNext()){
             String Word = scanner.next();
             if(result.length()>0){
-                result = result + "";
+                result = result + " ";
             }
             result = result + translateWord(Word);
         }
@@ -62,10 +62,37 @@ public class PigLatinTranslator {
         if(input.length()==0){
             return "";
         }
-        //find the first vowel
-        //divide the string into two parts which is the part before the vowel and after the vowel
-        //and have a result of the string + ay
+        char lastChar = input.charAt(input.length() - 1);
+        boolean hasPunct = !Character.isLetterOrDigit(lastChar);
+        String punctuation = hasPunct ? String.valueOf(lastChar) : "";
+        if (hasPunct) {
+            input = input.substring(0, input.length() - 1);
+        }
+        boolean isCapital = Character.isUpperCase(input.charAt(0));
+        String lowerWord = input.toLowerCase();
 
+        int vowelIndex = -1;
+        for (int i = 0; i < lowerWord.length(); i++) {
+            if (vowels.indexOf(lowerWord.charAt(i)) >= 0) {
+                vowelIndex = i;
+                break;
+            }
+        }
+
+        if (vowelIndex == 0) {
+            result = lowerWord + "ay";
+        } else if (vowelIndex > 0) {
+            result = lowerWord.substring(vowelIndex) + lowerWord.substring(0, vowelIndex) + "ay";
+        } else {
+            result = lowerWord + "ay";
+        }
+
+        if (isCapital && result.length() > 0) {
+            result = Character.toUpperCase(result.charAt(0)) + result.substring(1).toLowerCase();
+
+        }
+
+        result = result + punctuation;
         return result;
     }
 
