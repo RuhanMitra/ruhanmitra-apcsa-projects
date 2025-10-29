@@ -3,7 +3,12 @@ import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
-
+        int numLines = input.getLineCount();
+        for (int i = 0; i < numLines; i++) {
+            String line = input.getLine(i);          
+            String translatedLine = translate(line); 
+            translatedBook.appendLine(translatedLine);
+        }
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
         // Curent do-nothing code will return an empty book.
@@ -40,8 +45,6 @@ public class PigLatinTranslator {
         // The input to this function could be any English string.
         // It may be made up of many words.
         // This method must call translateWord once for each word in the string.
-        result = translateWord(input);
-
         return result;
     }
 
@@ -49,11 +52,19 @@ public class PigLatinTranslator {
         System.out.println("  -> translateWord('" + input + "')");
 
         String result = "";
+        String vowels = "AEIOUYaeiouy";
+
 
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
         result = input; // delete this line
+        if(input.length()==0){
+            return "";
+        }
+        //find the first vowel
+        //divide the string into two parts which is the part before the vowel and after the vowel
+        //and have a result of the string + ay
 
         return result;
     }
