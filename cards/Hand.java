@@ -7,7 +7,7 @@ public class Hand {
         cards = new Card[max];
     }
 
-    public void add(Card c) {dcdfcdc
+    public void add(Card c) {
         if (s < cards.length) {
             cards[s++] = c;
         }
