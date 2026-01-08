@@ -2,37 +2,23 @@ package robot;
 
 import kareltherobot.*;
 
+   
+
 public class Main implements Directions {
 
     public static void main(String[] args) {
 
-        // Starter.main(args); // this will run the main method in the Starter.java
-        // class
-        // when you are ready, create a new .java file, rename to
-        // whatever you are coding, then add ClassName.main(args);
-        // to run this code
+        int sum = 0;
 
-        Diamond.main(args);
+        for (int i = 1; i < 1000; i++) {
+            if (i % 3 == 0 || i % 5 == 0) {
+                sum += i;
+            }
+        }
 
+        System.out.println("Sum: " + sum);
+
+        
     }
 }
-for(int i=0; i<=6; i++){
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.turnLeft();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.move();
-			roomba.turnLeft();
-			roomba.turnLeft();
 
-		}
