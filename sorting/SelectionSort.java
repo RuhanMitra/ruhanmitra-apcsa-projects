@@ -1,22 +1,31 @@
 package sorting;
 
 public class SelectionSort implements Sorter {
-   public void algorithm(int[] input) {
-       System.out.println("Selection Sort!!!");
-   }
+    private int stepCount;
 
+    public void algorithm(int[] data) {
+        System.out.println("Selection Sort!!!");
+    }
 
-   public void sort(int[] input) {
-       for (int i = 0; i < input.length - 1; i++) {
-           int minIndex = i;
-           for (int r = i + 1; r < input.length; r++) {
-               if (input[r] < input[minIndex]) {
-                   minIndex = r;
-               }
-           }
-           int temp = input[minIndex];
-           input[minIndex] = input[i];
-           input[i] = temp;
-       }
-   }
+    public int getNumStep() {
+        return stepCount;
+    }
+
+    public void sort(int[] data) {
+        stepCount = 0;
+        for (int a = 0; a < data.length - 1; a++) {
+            int smallestPos = a;
+            for (int b = a + 1; b < data.length; b++) {
+                stepCount++;
+                if (data[b] < data[smallestPos]) {
+                    smallestPos = b;
+                }
+            }
+            int swapValue = data[smallestPos];
+            data[smallestPos] = data[a];
+            data[a] = swapValue;
+            stepCount++;
+        }
+        System.out.println("Total steps: " + stepCount);
+    }
 }
